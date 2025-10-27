@@ -1,26 +1,26 @@
 
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="fornamn">Förnamn:</label>
+    <div class="input-container">
+        <label for="fornamn">Förnamn: </label>
         <input type="text" id="fornamn" formControlName="fornamn" [class.invalid]="registerForm.get('fornamn')?.invalid && (registerForm.get('fornamn')?.touched || registerForm.get('fornamn')?.dirty || isSubmitted)">
     </div>
     <span *ngIf="registerForm.get('fornamn')?.hasError('required') && (registerForm.get('fornamn')?.touched || isSubmitted)" class="error">Fyll i ditt förnamn</span>
     <span *ngIf="registerForm.get('fornamn')?.hasError('fornamnInvalid') && (registerForm.get('fornamn')?.dirty || isSubmitted)" class="error">Endast bokstäver och bindestreck (inga mellanslag).</span>
-    <div>
-        <label for="efternamn">Efternamn:</label>
+    <div class="input-container">
+        <label for="efternamn">Efternamn: </label>
         <input type="text" id="efternamn" formControlName="efternamn" [class.invalid]="registerForm.get('efternamn')?.invalid && (registerForm.get('efternamn')?.touched || registerForm.get('efternamn')?.dirty || isSubmitted)">
     </div>
     <span *ngIf="registerForm.get('efternamn')?.hasError('required') && (registerForm.get('efternamn')?.touched || isSubmitted)" class="error">Fyll i ditt efternamn</span>
-    <div>
-        <label for="email">Email:</label>
+    <div class="input-container">
+        <label for="email">Email: </label>
         <input type="text" id="email" formControlName="email" [class.invalid]="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty || isSubmitted)">
     </div>
     <p *ngIf="registerForm.get('email')?.hasError('required') && (registerForm.get('email')?.touched || isSubmitted)" class="error">Fyll i din email</p>
 
-    <div>
+    <div class="radio-container">
         <label>Välj fredagsmys:</label>
-        <input type="radio" formControlName="fredagsmys" [value]="fredagsmys[0].namn"> Godis
-        <input type="radio" formControlName="fredagsmys" [value]="fredagsmys[1].namn"> Popcorn
+        <label><input class="radio-options" type="radio" formControlName="fredagsmys" [value]="fredagsmys[0].namn"> Godis</label>
+        <label><input class="radio-options" type="radio" formControlName="fredagsmys" [value]="fredagsmys[1].namn"> Popcorn</label>
     </div>
 
     <button type="submit">Nästa sida</button>
