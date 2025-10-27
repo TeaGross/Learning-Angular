@@ -5,6 +5,7 @@
         <input type="text" id="fornamn" formControlName="fornamn" [class.invalid]="registerForm.get('fornamn')?.invalid && (registerForm.get('fornamn')?.touched || registerForm.get('fornamn')?.dirty || isSubmitted)">
     </div>
     <span *ngIf="registerForm.get('fornamn')?.hasError('required') && (registerForm.get('fornamn')?.touched || isSubmitted)" class="error">Fyll i ditt förnamn</span>
+    <span *ngIf="registerForm.get('fornamn')?.hasError('fornamnInvalid') && (registerForm.get('fornamn')?.dirty || isSubmitted)" class="error">Endast bokstäver och bindestreck (inga mellanslag).</span>
     <div>
         <label for="efternamn">Efternamn:</label>
         <input type="text" id="efternamn" formControlName="efternamn" [class.invalid]="registerForm.get('efternamn')?.invalid && (registerForm.get('efternamn')?.touched || registerForm.get('efternamn')?.dirty || isSubmitted)">

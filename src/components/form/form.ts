@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { FormDataService } from '../../app/services/FormDataService';
+import { fornamnValidator } from '../../app/validators/fornamn.validator';
 
 @Component({
   selector: 'app-form',
@@ -19,7 +20,7 @@ export class Form implements OnInit{
 
   constructor (private fb: FormBuilder, private router: Router, private formDataService: FormDataService) {
     this.registerForm = this.fb.group({
-      fornamn: ["", Validators.required],
+      fornamn: ["", [Validators.required, fornamnValidator()]],
       efternamn: ["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
       fredagsmys: [""],
