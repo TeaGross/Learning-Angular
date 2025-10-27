@@ -16,14 +16,16 @@ export class Form implements OnInit{
   registerForm: FormGroup;
   isSubmitted = false;
   fredagsmys = [{ namn: 'Godis'}, { namn: 'Popcorn'}]
-  
+  formData: any;
 
   constructor (private fb: FormBuilder, private router: Router, private formDataService: FormDataService) {
+    this.formData = this.formDataService.get();
+    
     this.registerForm = this.fb.group({
-      fornamn: ["", [Validators.required, fornamnValidator()]],
-      efternamn: ["", Validators.required],
-      email: ["", [Validators.required, Validators.email]],
-      fredagsmys: [""],
+      fornamn: [this.formData?.fornamn ?? "", [Validators.required, fornamnValidator()]],
+      efternamn: [this.formData?.efternamn ?? "", Validators.required],
+      email: [this.formData?.email ?? "", [Validators.required, Validators.email]],
+      fredagsmys: [this.formData?.fredagsmys ?? ""],
     })
   }
 
