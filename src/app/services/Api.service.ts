@@ -7,9 +7,9 @@ export class ApiService {
 
     constructor(private http: HttpClient) {}
 
-    public getTodos(): Observable<Todo> {
+    public getTodos(): Observable<Todo[]> {
         const URL: string = 'https://jsonplaceholder.typicode.com/todos'
-        return this.http.get<Todo>(URL);
+        return this.http.get<Todo[]>(URL);
     }
     
 }

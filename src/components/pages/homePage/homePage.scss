@@ -1,0 +1,30 @@
+.home-page {
+    display: flex;
+    justify-content: space-around;
+
+    .card-container{
+        display: flex;
+        justify-content: center;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 8px;
+        width: 200px;
+        text-align: center;
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        background-color: rgb(78, 46, 4);
+    }
+
+    .card-container:hover {
+        box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+        transition: all 0.3s ease;
+    }
+
+    a {
+        text-decoration: none;
+        border: none;
+        color: rgb(255, 175, 28);
+
+    }
+
+}

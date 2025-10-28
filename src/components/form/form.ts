@@ -8,7 +8,7 @@ import { fornamnValidator } from '../../app/validators/fornamn.validator';
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, NgIf, RouterLink],
   templateUrl: './form.html',
   styleUrls: ['./form.scss'],
 })
