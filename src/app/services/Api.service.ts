@@ -11,5 +11,10 @@ export class ApiService {
         const URL: string = 'https://jsonplaceholder.typicode.com/todos'
         return this.http.get<Todo[]>(URL);
     }
+
+    public getTodoById(id:number): Observable<Todo> {
+        const URL: string = `https://jsonplaceholder.typicode.com/todos/${id}`;
+        return this.http.get<Todo>(URL);
+    }
     
 }

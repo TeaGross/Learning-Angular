@@ -2,6 +2,8 @@
 <h3>Todos</h3>
 <ul>
   <li *ngFor="let t of todos | async">
-    <input type="checkbox" [checked]="t.completed" disabled> {{ t.title }}
+    <a [routerLink]="['/todos', t.id]">
+      <input type="checkbox" [checked]="t.completed" disabled> {{ t.title }}
+    </a>
   </li>
 </ul>

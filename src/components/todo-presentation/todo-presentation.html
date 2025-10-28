@@ -1,0 +1,7 @@
+<a routerLink="/todos"><--Tillbaka till todos</a>
+
+<div class="todo-presentation-container" *ngIf="todo | async as todo;">
+    <p>Todo nr: {{ todo.id}}</p>
+    <input type="checkbox" [checked]="todo.completed" disabled>
+    <h3> {{ todo.title }}</h3>
+</div>
