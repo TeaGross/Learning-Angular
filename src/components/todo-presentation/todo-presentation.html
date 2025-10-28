@@ -4,4 +4,5 @@
     <p>Todo nr: {{ todo.id}}</p>
     <input type="checkbox" [checked]="todo.completed" disabled>
     <h3> {{ todo.title }}</h3>
+    <p *ngIf="todo.new">{{ todo.new}}</p>
 </div>
