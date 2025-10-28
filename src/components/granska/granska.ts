@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormDataService } from '../../app/services/FormDataService';
+import { FormDataService } from '../../app/services/FormData.service';
 import { NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 

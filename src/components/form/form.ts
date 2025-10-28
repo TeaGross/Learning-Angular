@@ -2,7 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { FormDataService } from '../../app/services/FormDataService';
+import { FormDataService } from '../../app/services/FormData.service';
 import { fornamnValidator } from '../../app/validators/fornamn.validator';
 
 @Component({
