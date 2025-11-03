@@ -19,6 +19,13 @@
     </div>
     <p *ngIf="registerForm.get('email')?.hasError('required') && (registerForm.get('email')?.touched || isSubmitted)" class="error">Fyll i din email</p>
 
+     <div class="input-container">
+        <label for="nummer">Nummer: </label>
+        <input type="text" id="nummer" formControlName="nummer" [class.invalid]="registerForm.get('nummer')?.invalid && (registerForm.get('nummer')?.touched || registerForm.get('nummer')?.dirty || isSubmitted)">
+    </div>
+    <span *ngIf="registerForm.get('nummer')?.hasError('required') && (registerForm.get('nummer')?.touched || isSubmitted)" class="error">Fyll i ditt nummer</span>
+    <span *ngIf="registerForm.get('nummer')?.hasError('forbiddenZipcodeStart') && (registerForm.get('nummer')?.dirty || isSubmitted)" class="error">Nummer får inte börja på 0</span>
+
     <div class="radio-container">
         <label>Välj fredagsmys:</label>
         <label><input class="radio-options" type="radio" formControlName="fredagsmys" [value]="fredagsmys[0].namn"> Godis</label>

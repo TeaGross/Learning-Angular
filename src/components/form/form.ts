@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { FormDataService } from '../../app/services/FormData.service';
 import { fornamnValidator } from '../../app/validators/fornamn.validator';
+import { forbiddenZipcodeStartValidator } from '../../app/validators/zero.validator';
 
 @Component({
   selector: 'app-form',
@@ -26,6 +27,7 @@ export class Form implements OnInit{
       efternamn: [this.formData?.efternamn ?? "", Validators.required],
       email: [this.formData?.email ?? "", [Validators.required, Validators.email]],
       fredagsmys: [this.formData?.fredagsmys ?? ""],
+      nummer: [this.formData?.nummer ?? "", [Validators.required, forbiddenZipcodeStartValidator()]]
     })
   }
 
