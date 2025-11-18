@@ -26,7 +26,7 @@
     </div>
     <span *ngIf="registerForm.get('nummer')?.hasError('required') && (registerForm.get('nummer')?.touched || isSubmitted)" class="error">Fyll i ditt nummer</span>
     <span *ngIf="registerForm.get('nummer')?.hasError('forbiddenZipcodeStart') && (registerForm.get('nummer')?.dirty || isSubmitted)" class="error">Nummer får inte börja på 0</span>
-
+    <span *ngIf="registerForm.get('nummer')?.hasError('phoneNumberInvalid') && (registerForm.get('nummer')?.dirty || isSubmitted)" class="error">Nummer måste vara 10 siffror</span>
     <div class="radio-container">
         <label>Välj fredagsmys:</label>
         <label><input class="radio-options" type="radio" formControlName="fredagsmys" [value]="fredagsmys[0].namn"> Godis</label>
