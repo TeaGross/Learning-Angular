@@ -13,6 +13,7 @@
         <input type="text" id="efternamn" formControlName="efternamn" [class.invalid]="registerForm.get('efternamn')?.invalid && (registerForm.get('efternamn')?.touched || registerForm.get('efternamn')?.dirty || isSubmitted)">
     </div>
     <span *ngIf="registerForm.get('efternamn')?.hasError('required') && (registerForm.get('efternamn')?.touched || isSubmitted)" class="error">Fyll i ditt efternamn</span>
+    <span *ngIf="registerForm.get('efternamn')?.hasError('endastMellanslag') && (registerForm.get('efternamn')?.dirty || isSubmitted)" class="error">Innehåller endast mellanslag</span>
     <div class="input-container">
         <label for="email">Email: </label>
         <input type="text" id="email" formControlName="email" [class.invalid]="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty || isSubmitted)">

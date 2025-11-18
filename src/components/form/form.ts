@@ -5,6 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormDataService } from '../../app/services/FormData.service';
 import { fornamnValidator } from '../../app/validators/fornamn.validator';
 import { forbiddenZipcodeStartValidator } from '../../app/validators/zero.validator';
+import { ejEndastMellanslagValidator } from '../../app/validators/ejEndastMellanslag.validator';
 
 @Component({
   selector: 'app-form',
@@ -24,7 +25,7 @@ export class Form implements OnInit{
     
     this.registerForm = this.fb.group({
       fornamn: [this.formData?.fornamn ?? "", [Validators.required, fornamnValidator()]],
-      efternamn: [this.formData?.efternamn ?? "", Validators.required],
+      efternamn: [this.formData?.efternamn ?? "", [Validators.required, ejEndastMellanslagValidator()]],
       email: [this.formData?.email ?? "", [Validators.required, Validators.email]],
       fredagsmys: [this.formData?.fredagsmys ?? ""],
       nummer: [this.formData?.nummer ?? "", [Validators.required, forbiddenZipcodeStartValidator()]]
