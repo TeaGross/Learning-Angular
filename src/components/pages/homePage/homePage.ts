@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
+import { DigiForm } from "../../digi-form/digi-form";
 
 @Component({
   selector: 'app-home-page',

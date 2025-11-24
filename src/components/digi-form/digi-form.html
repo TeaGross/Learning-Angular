@@ -1,0 +1,43 @@
+<digi-navigation-breadcrumbs
+      af-current-page="Formulär">
+      <a href="/">Start</a>
+      <a routerLink="/digi-form">Digi-form information</a>
+    </digi-navigation-breadcrumbs>
+
+  <form class="form" [formGroup]="digiForm" (ngSubmit)="OnSubmit()">
+    
+    <div class="form-group">
+      <digi-form-input
+      formControlName="firstname"
+      af-label="Förnamn"
+      [attr.af-id]="'firstname'"
+      af-type="text"
+      [attr.af-validation]=""
+      [class.invalid]="digiForm.get('firstname')?.invalid && (digiForm.get('firstname')?.touched || digiForm.get('firstname')?.dirty || isSubmitted)">
+      </digi-form-input>
+    </div>
+
+    <span *ngIf="digiForm.get('firstname')?.hasError('required') && (digiForm.get('firstname')?.touched || isSubmitted)"></span>
+
+    <div class="form-group">
+      <digi-form-input
+      formControlName="lastname"
+      af-label="Efternamn"
+      af-variation="medium"
+      af-type="text" 
+      af-validation="neutral"		
+      >
+      </digi-form-input>
+    </div>
+
+    <digi-button
+    af-size="medium"
+    af-variation="primary"
+    af-full-width="false"
+    [attr.af-type]="'submit'">
+    Nästa steg
+  </digi-button>
+  </form>
+  
+
+  

@@ -1,0 +1,62 @@
+ 
+ <div class="page1">
+    <digi-navigation-breadcrumbs
+	af-current-page="Digi-form information"
+>
+	<a href="/">Start</a>
+</digi-navigation-breadcrumbs>
+
+    <digi-typography
+	af-variation="large"
+    > 
+    <h2>Digi-formulär</h2>
+    </digi-typography>
+
+    <digi-progress-list
+	[attr.af-current-step]="1"
+	[attr.af-variation]="ProgressListVariation.PRIMARY"
+	[attr.af-heading]="'Så går det till'"
+	[attr.af-heading-level]="ProgressListHeadingLevel.H3"
+	[attr.af-type]="ProgressListType.CIRCLE"
+	[attr.af-expandable]="false"
+>
+	<digi-progress-list-item af-heading="Fyll i formuläret">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Etiam magna neque, interdum vel massa eget, condimentum
+		rutrum velit. Sed vitae ullamcorper sem.
+	</digi-progress-list-item>
+	<digi-progress-list-item af-heading="Ärendet handläggs">
+		<div>
+			<h4>Underrubrik</h4>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			Etiam magna neque, interdum vel massa eget, condimentum
+			rutrum velit. Sed vitae ullamcorper sem.
+		</div>
+	</digi-progress-list-item>
+	<digi-progress-list-item af-heading="Ärendet granskas">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Etiam magna neque, interdum vel massa eget, condimentum
+		rutrum velit. Sed vitae ullamcorper sem.
+	</digi-progress-list-item>
+	<digi-progress-list-item af-heading="Beslut fattas">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Etiam magna neque, interdum vel massa eget, condimentum
+		rutrum velit. Sed vitae ullamcorper sem.
+	</digi-progress-list-item>
+</digi-progress-list>
+
+   <div class="form-info">
+      <digi-expandable-accordion
+        [attr.af-heading]="'Mer info'">
+        <p>Det här är viktig information om formuläret</p>
+      </digi-expandable-accordion>
+    </div>
+    <digi-button
+	af-size="medium"
+	af-variation="primary"
+	af-full-width="false"
+    routerLink="/digi-form-start">
+	Till formuläret
+</digi-button>
+</div>
+
