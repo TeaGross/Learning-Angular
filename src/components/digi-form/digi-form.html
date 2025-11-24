@@ -13,11 +13,15 @@
       [attr.af-id]="'firstname'"
       af-type="text"
       [attr.af-validation]=""
-      [class.invalid]="digiForm.get('firstname')?.invalid && (digiForm.get('firstname')?.touched || digiForm.get('firstname')?.dirty || isSubmitted)">
+      >
       </digi-form-input>
+      <digi-form-validation-message
+        af-variation="error"
+        *ngIf="digiForm.get('firstname')?.hasError('required') && (digiForm.get('firstname')?.touched || isSubmitted)" class="error">
+        Ange förnamn
+      </digi-form-validation-message>
     </div>
 
-    <span *ngIf="digiForm.get('firstname')?.hasError('required') && (digiForm.get('firstname')?.touched || isSubmitted)"></span>
 
     <div class="form-group">
       <digi-form-input
