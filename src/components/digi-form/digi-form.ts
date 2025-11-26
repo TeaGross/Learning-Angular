@@ -18,6 +18,7 @@ export class DigiForm {
   digiForm!: FormGroup;
   isSubmitted = false;
   formData: any;
+  coffeestatus = [{ namn: 'Full tank'}, { namn: 'Lagom nivå'},{ namn: 'Kris och panik'},{ namn: 'Behöver espresso intravenöst'},{ namn: '"Prata inte med mig"-läge'}]
 
   constructor(private fb: FormBuilder, private DigiFormDataAService: DigiFormDataAService, private router: Router ) {
   }
@@ -28,6 +29,7 @@ export class DigiForm {
     this.digiForm = this.fb.group({
         firstname: new UntypedFormControl (this.formData?.firstname ?? "", [Validators.required, fornamnValidator()]),
         lastname: new UntypedFormControl (this.formData?.lastname ?? "", [Validators.required, fornamnValidator()]),
+        coffeestatus: new UntypedFormControl (this.formData?.coffeestatus ?? "", [Validators.required])
       })
   }
 

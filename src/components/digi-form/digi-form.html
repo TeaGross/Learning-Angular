@@ -37,7 +37,7 @@
       af-validation="neutral"		
       >
       </digi-form-input>
-       <digi-form-validation-message
+      <digi-form-validation-message
         af-variation="error"
         *ngIf="digiForm.get('lastname')?.hasError('required') && (digiForm.get('lastname')?.touched || isSubmitted)">
         Ange efternamn
@@ -48,6 +48,27 @@
         Efternamn får endast innehålla a-ö, A-Ö, -, blanksteg, é, è, ü, É, È, Ü
       </digi-form-validation-message>
     </div>
+
+    <div class="form-group">
+    <digi-form-select
+      formControlName="coffeestatus"
+      [attr.af-label]="'Kaffestatus'"
+      [attr.af-placeholder]="'Kaffestatus...'"
+      >
+      <option [value]="coffeestatus[0].namn">Full tank</option>
+ 	    <option [value]="coffeestatus[1].namn">Lagom nivå</option>
+      <option [value]="coffeestatus[2].namn">Kris och panik</option>
+      <option [value]="coffeestatus[3].namn">Behöver espresso intravenöst</option>
+      <option [value]="coffeestatus[4].namn">Prata inte med mig-läge</option>
+    </digi-form-select>
+    <div>
+      <digi-form-validation-message
+          af-variation="error"
+          *ngIf="digiForm.get('coffeestatus')?.hasError('required') && (digiForm.get('coffeestatus')?.touched || isSubmitted)">
+          Ange kaffestatus
+      </digi-form-validation-message>
+    </div>
+    </div>
 
     <digi-button
     af-size="medium"
