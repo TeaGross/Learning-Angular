@@ -104,6 +104,11 @@
           [attr.af-value]="chooseCarefully[2].namn"
         ></digi-form-radiobutton>
       </digi-form-radiogroup>
+       <digi-form-validation-message
+          af-variation="error"
+          *ngIf="digiForm.get('chooseCarefully')?.hasError('required') && (digiForm.get('chooseCarefully')?.touched || isSubmitted)">
+          Gör ett val
+      </digi-form-validation-message>
     </div>
 
     <digi-button
