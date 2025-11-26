@@ -10,7 +10,7 @@ import { fornamnValidator } from '../../app/validators/fornamn.validator';
 
 @Component({
   selector: 'app-digi-form',
-  imports: [ReactiveFormsModule, DigiNavigationBreadcrumbs, RouterLink, DigiFormInput, DigiButton, DigiFormInput, DigiArbetsformedlingenAngularModule, NgIf],
+  imports: [ReactiveFormsModule, RouterLink, DigiArbetsformedlingenAngularModule, NgIf],
   templateUrl: './digi-form.html',
   styleUrl: './digi-form.scss',
 })
@@ -19,6 +19,7 @@ export class DigiForm {
   isSubmitted = false;
   formData: any;
   coffeestatus = [{ namn: 'Full tank'}, { namn: 'Lagom nivå'},{ namn: 'Kris och panik'},{ namn: 'Behöver espresso intravenöst'},{ namn: '"Prata inte med mig"-läge'}]
+  chooseCarefully = [{ namn: 'Merge-konflikt från helvetet'}, { namn: 'Långsamt bygge (5min per ändring)'},{ namn: 'Koda med autocompletion som alltid föreslår fel saker'}]
 
   constructor(private fb: FormBuilder, private DigiFormDataAService: DigiFormDataAService, private router: Router ) {
   }
@@ -29,7 +30,9 @@ export class DigiForm {
     this.digiForm = this.fb.group({
         firstname: new UntypedFormControl (this.formData?.firstname ?? "", [Validators.required, fornamnValidator()]),
         lastname: new UntypedFormControl (this.formData?.lastname ?? "", [Validators.required, fornamnValidator()]),
-        coffeestatus: new UntypedFormControl (this.formData?.coffeestatus ?? "", [Validators.required])
+        coffeestatus: new UntypedFormControl (this.formData?.coffeestatus ?? "", [Validators.required]),
+        date: new UntypedFormControl (this.formData?.date ?? "", [Validators.required]),
+        chooseCarefully: new UntypedFormControl (this.formData?.choose ?? "", [Validators.required]),
       })
   }
 

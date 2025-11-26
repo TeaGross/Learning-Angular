@@ -27,7 +27,6 @@
       </digi-form-validation-message>
     </div>
 
-
     <div class="form-group">
       <digi-form-input
       formControlName="lastname"
@@ -69,6 +68,43 @@
       </digi-form-validation-message>
     </div>
     </div>
+
+    <div class="form-group">
+      <digi-calendar-datepicker
+      formControlName="date"
+      [attr.af-label]="'Önskat startdatum (ÅÅÅÅ-MM-DD)'"
+      [attr.af-label-description]="''">
+
+      </digi-calendar-datepicker>
+      <digi-form-validation-message
+          af-variation="error"
+          *ngIf="digiForm.get('date')?.hasError('required') && (digiForm.get('date')?.touched || isSubmitted)">
+          Ange datum
+      </digi-form-validation-message>
+    </div>
+    
+    <div class="form-group">
+      <digi-form-radiogroup 
+      [attr.af-name]="'myRadiogroupName'"
+      formControlName="chooseCarefully">
+        <digi-form-label
+          af-label="Om du måste välja..."
+          af-for="ett-element-id">
+        </digi-form-label>
+        <digi-form-radiobutton
+          [attr.af-label]="'Merge-konflikt från helvetet'"
+          [attr.af-value]="chooseCarefully[0].namn"
+        ></digi-form-radiobutton>
+        <digi-form-radiobutton
+          [attr.af-label]="'Långsamt bygge (5min per ändring)'"
+          [attr.af-value]="chooseCarefully[1].namn"
+        ></digi-form-radiobutton>
+        <digi-form-radiobutton
+          [attr.af-label]="'Koda med autocompletion som alltid föreslår fel saker'"
+          [attr.af-value]="chooseCarefully[2].namn"
+        ></digi-form-radiobutton>
+      </digi-form-radiogroup>
+    </div>
 
     <digi-button
     af-size="medium"
