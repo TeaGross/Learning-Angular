@@ -5,6 +5,7 @@ import { DigiNavigationBreadcrumbs, DigiFormInput, DigiButton } from '@designsys
 import { DigiFormDataAService } from '../../app/services/DigiFormData.service';
 import { Router, RouterLink } from '@angular/router';
 import { DigiArbetsformedlingenAngularModule, DigiFormErrorList } from '@designsystem-se/af-angular';
+import { fornamnValidator } from '../../app/validators/fornamn.validator';
 
 
 @Component({
@@ -25,8 +26,8 @@ export class DigiForm {
     this.formData = this.DigiFormDataAService.get();
   
     this.digiForm = this.fb.group({
-        firstname: new UntypedFormControl (this.formData?.firstname ?? "", [Validators.required]),
-        lastname: new UntypedFormControl (this.formData?.lastname ?? ""),
+        firstname: new UntypedFormControl (this.formData?.firstname ?? "", [Validators.required, fornamnValidator()]),
+        lastname: new UntypedFormControl (this.formData?.lastname ?? "", [Validators.required, fornamnValidator()]),
       })
   }
 

@@ -17,8 +17,13 @@
       </digi-form-input>
       <digi-form-validation-message
         af-variation="error"
-        *ngIf="digiForm.get('firstname')?.hasError('required') && (digiForm.get('firstname')?.touched || isSubmitted)" class="error">
+        *ngIf="digiForm.get('firstname')?.hasError('required') && (digiForm.get('firstname')?.touched || isSubmitted)">
         Ange förnamn
+      </digi-form-validation-message>
+      <digi-form-validation-message
+        af-variation="error"
+        *ngIf="digiForm.get('firstname')?.hasError('fornamnInvalid')">
+        Förnamn får endast innehålla a-ö, A-Ö, -, blanksteg, é, è, ü, É, È, Ü
       </digi-form-validation-message>
     </div>
 
@@ -32,6 +37,16 @@
       af-validation="neutral"		
       >
       </digi-form-input>
+       <digi-form-validation-message
+        af-variation="error"
+        *ngIf="digiForm.get('lastname')?.hasError('required') && (digiForm.get('lastname')?.touched || isSubmitted)">
+        Ange efternamn
+      </digi-form-validation-message>
+      <digi-form-validation-message
+        af-variation="error"
+        *ngIf="digiForm.get('lastname')?.hasError('fornamnInvalid')">
+        Efternamn får endast innehålla a-ö, A-Ö, -, blanksteg, é, è, ü, É, È, Ü
+      </digi-form-validation-message>
     </div>
 
     <digi-button
