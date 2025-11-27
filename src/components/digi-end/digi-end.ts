@@ -6,7 +6,7 @@ import { FormReceiptType, FormReceiptVariation } from '@designsystem-se/af';
 
 @Component({
   selector: 'app-digi-granska',
-  imports: [DigiArbetsformedlingenAngularModule],
+  imports: [DigiArbetsformedlingenAngularModule, RouterLink],
   templateUrl: './digi-end.html',
   styleUrl: './digi-end.scss'
 
