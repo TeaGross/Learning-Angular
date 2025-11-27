@@ -20,7 +20,7 @@ export class DigiForm {
   formData: any;
   coffeestatus = [{ namn: 'Full tank'}, { namn: 'Lagom nivå'},{ namn: 'Kris och panik'},{ namn: 'Behöver espresso intravenöst'},{ namn: '"Prata inte med mig"-läge'}]
   chooseCarefully = [{ namn: 'Merge-konflikt från helvetet'}, { namn: 'Långsamt bygge (5min per ändring)'},{ namn: 'Koda med autocompletion som alltid föreslår fel saker'}]
-
+  
   constructor(private fb: FormBuilder, private DigiFormDataAService: DigiFormDataAService, private router: Router ) {
   }
 
@@ -32,7 +32,7 @@ export class DigiForm {
         lastname: new UntypedFormControl (this.formData?.lastname ?? "", [Validators.required, fornamnValidator()]),
         coffeestatus: new UntypedFormControl (this.formData?.coffeestatus ?? "", [Validators.required]),
         date: new UntypedFormControl (this.formData?.date ?? "", [Validators.required]),
-        chooseCarefully: new UntypedFormControl (this.formData?.choose ?? "", [Validators.required]),
+        chooseCarefully: new UntypedFormControl (this.formData?.chooseCarefully ?? "", [Validators.required]),
       })
   }
 

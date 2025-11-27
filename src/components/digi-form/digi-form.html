@@ -73,8 +73,10 @@
       <digi-calendar-datepicker
       formControlName="date"
       [attr.af-label]="'Önskat startdatum (ÅÅÅÅ-MM-DD)'"
-      [attr.af-label-description]="''">
-
+      [attr.af-label-description]="''"
+      [attr.af-validation-wrong-format]="'Önskat startdatum ska formateras ÅÅÅÅ-MM-DD'"
+      [attr.af-multiple-dates]="'false'"
+      af-show-week-number='true'>
       </digi-calendar-datepicker>
       <digi-form-validation-message
           af-variation="error"
