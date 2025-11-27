@@ -1,0 +1,21 @@
+
+<digi-typography>
+    <h2>Du har svarat:</h2>
+    <p>Förnamn: {{formData?.firstname}}</p>
+    <p>Efternamn: {{formData?.lastname}}</p>
+    <p>Kaffestatus: {{formData?.coffeestatus}}</p>
+    <p>Datum: {{formData?.date}}</p>
+    <p>Du valde: {{formData?.chooseCarefully}}</p>
+</digi-typography>
+
+
+<digi-button
+    af-variation="secondary"
+    routerLink="/digi-form">
+    Tillbaka
+</digi-button>
+
+<digi-button
+    routerLink="/digi-form-end">
+    Skicka in
+</digi-button>

@@ -46,6 +46,6 @@ export class DigiForm {
 
     this.DigiFormDataAService.set(this.digiForm.value)
     console.log(this.digiForm.value);
-    this.router.navigate(['/digi-form-start']);
+    this.router.navigate(['/digi-form-granska']);
   }
 }
