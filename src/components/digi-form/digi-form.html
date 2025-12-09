@@ -74,14 +74,29 @@
       formControlName="date"
       [attr.af-label]="'Önskat startdatum (ÅÅÅÅ-MM-DD)'"
       [attr.af-label-description]="''"
-      [attr.af-validation-wrong-format]="'Önskat startdatum ska formateras ÅÅÅÅ-MM-DD'"
-      [attr.af-multiple-dates]="'false'"
+      [attr.af-disable-validation]="true"
+      [afMinDate]="minDate"
       af-show-week-number='true'>
       </digi-calendar-datepicker>
       <digi-form-validation-message
           af-variation="error"
           *ngIf="digiForm.get('date')?.hasError('required') && (digiForm.get('date')?.touched || isSubmitted)">
           Ange datum
+      </digi-form-validation-message>
+      <digi-form-validation-message
+          af-variation="error"
+          *ngIf="!digiForm.get('date')?.hasError('required') && digiForm.get('date')?.hasError('invalidDate')">
+          invalidDate Ange ett startdatum för anställningen (ÅÅÅÅ-MM-DD)
+      </digi-form-validation-message>
+      <digi-form-validation-message
+          af-variation="error"
+          *ngIf="!digiForm.get('date')?.hasError('invalidDate') && digiForm.get('date')?.hasError('multipleDates')">
+          Du kan endast välja ett startdatum
+      </digi-form-validation-message>
+      <digi-form-validation-message
+          af-variation="error"
+          *ngIf="!digiForm.get('date')?.hasError('multipleDates') && digiForm.get('date')?.hasError('InvalidDateTodayOrLater')">
+          Välj startdatum från idag eller i framtiden
       </digi-form-validation-message>
     </div>
     

@@ -1,12 +1,12 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, UntypedFormControl, Validators } from '@angular/forms';
-import { DigiNavigationBreadcrumbs, DigiFormInput, DigiButton } from '@designsystem-se/af-angular';
 import { DigiFormDataAService } from '../../app/services/DigiFormData.service';
 import { Router, RouterLink } from '@angular/router';
-import { DigiArbetsformedlingenAngularModule, DigiFormErrorList } from '@designsystem-se/af-angular';
+import { DigiArbetsformedlingenAngularModule } from '@designsystem-se/af-angular';
 import { fornamnValidator } from '../../app/validators/fornamn.validator';
-
+import { dateValidator } from '../../app/validators/validDate.validator';
+import { dateTodayOrLaterValidator } from '../../app/validators/todayOrLater.validator';
 
 @Component({
   selector: 'app-digi-form',
@@ -19,6 +19,7 @@ export class DigiForm {
   isSubmitted = false;
   formData: any;
   coffeestatus = [{ namn: 'Full tank'}, { namn: 'Lagom nivå'},{ namn: 'Kris och panik'},{ namn: 'Behöver espresso intravenöst'},{ namn: '"Prata inte med mig"-läge'}]
+  minDate: Date = new Date();
   chooseCarefully = [{ namn: 'Merge-konflikt från helvetet'}, { namn: 'Långsamt bygge (5min per ändring)'},{ namn: 'Koda med autocompletion som alltid föreslår fel saker'}]
   
   constructor(private fb: FormBuilder, private DigiFormDataAService: DigiFormDataAService, private router: Router ) {
@@ -31,7 +32,7 @@ export class DigiForm {
         firstname: new UntypedFormControl (this.formData?.firstname ?? "", [Validators.required, fornamnValidator()]),
         lastname: new UntypedFormControl (this.formData?.lastname ?? "", [Validators.required, fornamnValidator()]),
         coffeestatus: new UntypedFormControl (this.formData?.coffeestatus ?? "", [Validators.required]),
-        date: new UntypedFormControl (this.formData?.date ?? "", [Validators.required]),
+        date: new UntypedFormControl (this.formData?.date ?? "", [Validators.required, dateValidator(), dateTodayOrLaterValidator()]),
         chooseCarefully: new UntypedFormControl (this.formData?.chooseCarefully ?? "", [Validators.required]),
       })
   }
