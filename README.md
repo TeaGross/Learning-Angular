@@ -19,3 +19,12 @@ Mitt första angular-projekt!
 - Skapat en Todo-presentation‑komponent som läser id från ActivatedRoute och hämtar den specifika todon via ApiService.getTodoById().
 - Använt RxJS pipe med map för att ändra det hämtade objektet, gäller för todo med id === 1 där en ny property vid namn new läggs till.
 
+### Digi-formulär
+- Installerat Arbetsförmedlingens komponentbibliotek och använt komponenter för att skapa ett formulär.
+- Implementerat en enkel delad service `DigiFormDataAService` för att spara formulärdata mellan sidor.
+- Skapat custom validering för formulärfälten (förnamn, efternamn, datum)
+- Implementerat AF:s datum-komponent med egen validering ` dateValidator ` som ska godkänna datum i formaten ÅÅÅÅMMDD, ÅÅÅÅ-MM-DD, ÅÅMMDD och ÅÅÅÅ/MM/DD samt ` dateTodayOrLaterValidator ` för att användaren endast ska kunna ange ett startdatum från dagens datum.
+- Skapat custom pipe `formatDate` för datumformattering: ÅÅÅÅ-MM-DD.
+- Skapat en granskasida där det användaren fyllt i presenteras. 
+- En 'skicka in' knapp som leder till en bekräftelsesida(denna ska skyddas med en routeGuard i framtiden)
+
